@@ -1,0 +1,126 @@
+# How to Push a Local Project to a GitHub Repository
+
+## 1. Navigate to your project folder
+
+```bash
+cd /path/to/your/project
+```
+
+## 2. Initialize Git
+
+```bash
+git init
+```
+
+This creates a local Git repository in your project folder.
+
+## 3. Add files to Git
+
+```bash
+git add .
+```
+
+The `.` means "add all files and folders".
+
+## 4. Create your first commit
+
+```bash
+git commit -m "Initial commit"
+```
+
+A commit is a snapshot of your project at a specific point in time.
+
+## 5. Add the GitHub repository as a remote
+
+```bash
+git remote add origin https://github.com/<username>/<repository>.git
+```
+
+Example:
+
+```bash
+git remote add origin https://github.com/skforever99/setting-up-stuff.git
+```
+
+Verify the remote:
+
+```bash
+git remote -v
+```
+
+## 6. Rename the branch to main
+
+```bash
+git branch -M main
+```
+
+## 7. Push the code to GitHub
+
+```bash
+git push -u origin main
+```
+
+The `-u` flag sets the upstream branch, so future pushes can be done with:
+
+```bash
+git push
+```
+
+## Useful Commands
+
+Check repository status:
+
+```bash
+git status
+```
+
+View commit history:
+
+```bash
+git log --oneline
+```
+
+View configured remotes:
+
+```bash
+git remote -v
+```
+
+## Common Errors
+
+### Error: remote origin already exists
+
+Remove the existing remote and add it again:
+
+```bash
+git remote remove origin
+git remote add origin https://github.com/<username>/<repository>.git
+```
+
+### Error: src refspec main does not match any
+
+Usually means no commit has been created yet.
+
+Create a commit first:
+
+```bash
+git add .
+git commit -m "Initial commit"
+git push -u origin main
+```
+
+### Error: Large files detected
+
+Terraform users often accidentally commit `.terraform` directories.
+
+Add a `.gitignore` file:
+
+```gitignore
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+```
+
+Then remove tracked files and commit again.
