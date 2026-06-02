@@ -1,0 +1,13 @@
+ git init
+ 
+git add .
+
+git commit -m " adding instruction file "
+
+git status
+
+git remote add origin https://github.com/skforever99/setting-up-stuff
+
+git remote set-url origin https://<PAT>@github.com/skforever99/setting-up-stuff   
+
+git branch -m main
